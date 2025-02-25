@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Late-night baguette delivery service. Order BBQ Chicken, Beef, or Tofu baguettes now!">
+    <title>Minuit Munchies & Co - Late Night Baguette Delivery</title>
+    <style>
+        :root {
+            --primary: #fcba03;
+            --dark: #1a1a1a;
+            --light: #ffffff;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero {
+            position: relative;
+            height: 40vh;
+            min-height: 250px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('cover-image.webp');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin: 0;
+            color: var(--primary);
+        }
+
+        .logo {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .logo img {
+            width: 150px;
+            height: auto;
+            aspect-ratio: 1;
+        }
+
+        .menu {
+            padding: 40px 0;
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu-item {
+            margin: 25px 0;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            transition: transform 0.2s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateX(10px);
+        }
+
+        .cta {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .cta a {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--dark);
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .cta a:hover {
+            background-color: #ffd633;
+            transform: scale(1.05);
+        }
+
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.9);
+            padding: 15px;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .hero {
+                height: 30vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="logo.png" 
+                 alt="Minuit Munchies & Co Logo - Moon with baguette illustration" 
+                 loading="lazy"
+                 width="150"
+                 height="150">
+        </div>
+        
+        <section class="hero" aria-label="Hero section with sizzling baguette image">
+            <h1>Minuit Munchies & Co</h1>
+        </section>
+
+        <main>
+            <p class="lead">Late-night cravings? We've got you covered!</p>
+
+            <section class="menu" aria-labelledby="menu-heading">
+                <h2 id="menu-heading">Our Menu</h2>
+                <ul>
+                    <li class="menu-item">🔥 BBQ Chicken Baguette - Caramelized onions, vine-ripened tomatoes, roasted peppers</li>
+                    <li class="menu-item">🔥 BBQ Beef Baguette - Caramelized onions, vine-ripened tomatoes, roasted peppers</li>
+                    <li class="menu-item">🔥 Tofu Baguette (Vegan) - Caramelized onions, vine-ripened tomatoes, roasted peppers</li>
+                </ul>
+            </section>
+
+            <section class="cta" aria-labelledby="cta-heading">
+                <h2 id="cta-heading" hidden>Order Now</h2>
+                <p>Order now and satisfy your midnight munchies!</p>
+                <a href="https://form.jotform.com/250548518071255" 
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Open order form in new window">
+                    Order Now - Delivery until 2AM
+                </a>
+            </section>
+        </main>
+    </div>
+
+    <div class="cookie-consent" role="alert">
+        <p>We use cookies to enhance your experience. By continuing, you agree to our use of cookies.</p>
+        <button onclick="dismissCookieBanner()">Accept</button>
+    </div>
+
+    <script>
+        // Basic cookie consent
+        window.addEventListener('DOMContentLoaded', () => {
+            if(!localStorage.getItem('cookiesAccepted')) {
+                document.querySelector('.cookie-consent').style.display = 'block';
+            }
+        });
+
+        function dismissCookieBanner() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.querySelector('.cookie-consent').style.display = 'none';
+        }
+
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FoodEstablishment",
+        "name": "Minuit Munchies & Co",
+        "image": "logo.webp",
+        "description": "Late-night baguette delivery service",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Your City",
+            "addressRegion": "Your Region"
+        },
+        "openingHours": "Mo-Su 20:00-02:00",
+        "telephone": "+123-456-7890"
+    }
+    </script>
+</body>
+</html>
