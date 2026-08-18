@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Minuit Munchies — The Chicken Box</title>
+<meta name="description" content="250 g of boldly marinated chicken thigh, fresh tomato and onion, and our signature Minuit sauce. Choose plantain, fries, bread — or keep it simple. Build your box and order on WhatsApp.">
+<meta name="theme-color" content="#FBF6EC">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Minuit Munchies — The Chicken Box">
+<meta property="og:description" content="Boldly marinated chicken, fresh toppings, signature sauce. You choose how to finish it.">
+<meta property="og:image" content="images/box-hero.jpg">
+
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,700&family=Archivo:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+<script>document.documentElement.className = 'js';</script>
+
+<style>
+/* ============================================================
+   MINUIT MUNCHIES — bright market-poster / editorial food
+   Cream paper, charcoal ink, brand gold, tomato red.
+   ============================================================ */
+
+:root{
+  --paper:      #FBF6EC;
+  --paper-2:    #F4E9D6;
+  --paper-3:    #EADCC2;
+  --ink:        #201B14;
+  --ink-soft:   #574E41;
+  --ink-faint:  #8B8071;
+  --gold:       #E0A21A;
+  --gold-deep:  #B87D0C;
+  --tomato:     #D14328;
+  --herb:       #3F6B41;
+  --cream:      #F6DFB0;
+
+  --shadow-sm: 0 1px 2px rgba(32,27,20,.06), 0 3px 8px rgba(32,27,20,.05);
+  --shadow-md: 0 2px 4px rgba(32,27,20,.05), 0 12px 28px -8px rgba(32,27,20,.16);
+  --shadow-lg: 0 4px 8px rgba(32,27,20,.05), 0 32px 64px -16px rgba(32,27,20,.28);
+
+  --display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --body: 'Archivo', 'Helvetica Neue', Helvetica, sans-serif;
+  --hand: 'Caveat', 'Bradley Hand', cursive;
+
+  --edge: 1.5px solid var(--ink);
+  --r-sm: 10px;
+  --r-md: 18px;
+  --r-lg: 28px;
+
+  --gut: clamp(1.25rem, 4vw, 3.5rem);
+  --maxw: 1240px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:clamp(1rem, .96rem + .18vw, 1.075rem);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* paper grain */
+body::before{
+  content:"";
+  position:fixed; inset:0; z-index:9999; pointer-events:none;
+  opacity:.32; mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E");
+}
+
+h1,h2,h3,h4{
+  font-family:var(--display);
+  font-weight:900;
+  font-variation-settings:'SOFT' 0,'WONK' 1;
+  line-height:.95;
+  letter-spacing:-.02em;
+  margin:0;
+  text-wrap:balance;
+}
+
+a{ color:inherit; }
+img{ max-width:100%; display:block; }
+button,input,textarea,select{ font:inherit; color:inherit; }
+
+.wrap{ width:100%; max-width:var(--maxw); margin-inline:auto; padding-inline:var(--gut); }
+
+.eyebrow{
+  font-family:var(--body);
+  font-size:.72rem; font-weight:700;
+  letter-spacing:.22em; text-transform:uppercase;
+  color:var(--gold-deep);
+  margin:0 0 1rem;
+  display:flex; align-items:center; gap:.7rem;
+}
+.eyebrow::after{ content:""; height:1.5px; flex:1; background:linear-gradient(90deg,var(--gold),transparent); }
+
+.hand{ font-family:var(--hand); font-size:1.35rem; color:var(--tomato); line-height:1.1; }
+
+/* ---------- reveal ---------- */
+.js .reveal{ opacity:0; transform:translateY(22px); }
+.js .reveal.in{
+  opacity:1; transform:none;
+  transition:opacity .7s cubic-bezier(.2,.7,.3,1), transform .7s cubic-bezier(.2,.7,.3,1);
+  transition-delay:var(--d,0ms);
+}
+@media (prefers-reduced-motion: reduce){
+  .js .reveal{ opacity:1 !important; transform:none !important; }
+}
+
+/* ============================ HEADER ============================ */
+.hdr{
+  position:sticky; top:0; z-index:60;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(14px) saturate(1.4);
+  border-bottom:1.5px solid rgba(32,27,20,.12);
+}
+.hdr-in{
+  display:flex; align-items:center; gap:1.25rem;
+  min-height:66px;
+}
+.brand{ display:flex; align-items:center; gap:.7rem; text-decoration:none; margin-right:auto; }
+.brand img{ width:38px; height:38px; object-fit:contain; }
+.brand-txt{ display:flex; flex-direction:column; line-height:1; }
+.brand-txt b{ font-family:var(--display); font-size:1.12rem; font-weight:900; letter-spacing:-.02em; }
+.brand-txt span{ font-size:.58rem; letter-spacing:.34em; text-transform:uppercase; color:var(--ink-faint); margin-top:3px; }
+
+.nav{ display:flex; gap:1.6rem; }
+.nav a{
+  text-decoration:none; font-size:.82rem; font-weight:600;
+  letter-spacing:.04em; text-transform:uppercase;
+  padding-block:.35rem; position:relative;
+}
+.nav a::after{
+  content:""; position:absolute; left:0; right:100%; bottom:0; height:2px;
+  background:var(--gold); transition:right .3s cubic-bezier(.2,.7,.3,1);
+}
+.nav a:hover::after{ right:0; }
+@media (max-width:860px){ .nav{ display:none; } }
+
+.status{
+  display:inline-flex; align-items:center; gap:.45rem;
+  font-size:.72rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--ink-soft); white-space:nowrap;
+}
+.dot{ width:8px; height:8px; border-radius:50%; background:var(--herb); position:relative; }
+.dot::after{
+  content:""; position:absolute; inset:-4px; border-radius:50%;
+  border:1.5px solid var(--herb); opacity:.5;
+  animation:pulse 2.4s ease-out infinite;
+}
+.dot.off{ background:var(--ink-faint); }
+.dot.off::after{ border-color:var(--ink-faint); animation:none; }
+@keyframes pulse{ 0%{transform:scale(.7);opacity:.7} 100%{transform:scale(1.5);opacity:0} }
+@media (max-width:560px){ .status{ display:none; } }
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:.55rem;
+  padding:.85rem 1.5rem;
+  font-size:.85rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase;
+  text-decoration:none; cursor:pointer;
+  border:var(--edge); border-radius:999px;
+  background:var(--gold); color:var(--ink);
+  box-shadow:3px 3px 0 var(--ink);
+  transition:transform .16s cubic-bezier(.2,.7,.3,1), box-shadow .16s cubic-bezier(.2,.7,.3,1), background .2s;
+}
+.btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); background:#EDB331; }
+.btn:active{ transform:translate(1px,1px); box-shadow:1px 1px 0 var(--ink); }
+.btn:focus-visible{ outline:3px solid var(--tomato); outline-offset:3px; }
+.btn.ghost{ background:transparent; box-shadow:none; }
+.btn.ghost:hover{ background:var(--paper-2); transform:none; box-shadow:none; }
+.btn.wa{ background:var(--herb); color:#fff; width:100%; padding-block:1.05rem; font-size:.92rem; }
+.btn.wa:hover{ background:#4A7C4C; }
+.btn.sm{ padding:.6rem 1.05rem; font-size:.75rem; }
+.btn[disabled]{ opacity:.45; pointer-events:none; }
+
+/* ============================ HERO ============================ */
+.hero{ position:relative; padding-block:clamp(2.5rem,7vw,5.5rem) clamp(2rem,5vw,4rem); overflow:hidden; }
+.hero::before{
+  content:""; position:absolute; z-index:0;
+  width:min(78vw,760px); aspect-ratio:1; right:-16%; top:-24%;
+  background:radial-gradient(circle at 50% 50%, rgba(224,162,26,.30), rgba(224,162,26,0) 68%);
+  pointer-events:none;
+}
+.hero::after{
+  content:""; position:absolute; z-index:0;
+  width:min(60vw,520px); aspect-ratio:1; left:-18%; bottom:-30%;
+  background:radial-gradient(circle at 50% 50%, rgba(209,67,40,.16), rgba(209,67,40,0) 68%);
+  pointer-events:none;
+}
+.hero-grid{
+  position:relative; z-index:1;
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
+  gap:clamp(2rem,5vw,4.5rem); align-items:center;
+}
+@media (max-width:960px){ .hero-grid{ grid-template-columns:1fr; gap:2.5rem; } }
+
+.hero h1{
+  font-size:clamp(3rem, 9.5vw, 6.6rem);
+  letter-spacing:-.035em;
+}
+.hero h1 em{
+  font-style:italic; font-weight:700; color:var(--tomato);
+  font-variation-settings:'SOFT' 40,'WONK' 1;
+}
+.hero-lede{
+  font-size:clamp(1.05rem,1.5vw,1.24rem);
+  color:var(--ink-soft); max-width:46ch; margin:1.6rem 0 0;
+}
+.hero-lede b{ color:var(--ink); font-weight:600; }
+.hero-cta{ display:flex; flex-wrap:wrap; gap:.85rem; margin-top:2.2rem; align-items:center; }
+
+.price-tag{
+  display:inline-flex; align-items:baseline; gap:.4rem;
+  font-family:var(--display); font-weight:900;
+  margin-left:.35rem;
+}
+.price-tag b{ font-size:1.6rem; }
+.price-tag span{ font-size:.72rem; font-family:var(--body); font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); }
+
+/* ---------- annotated hero photo ---------- */
+.shot{ position:relative; }
+.shot-frame{
+  position:relative; border:var(--edge); border-radius:var(--r-lg);
+  overflow:hidden; background:var(--paper-2);
+  box-shadow:var(--shadow-lg);
+  transform:rotate(-1.2deg);
+  aspect-ratio:4/3;
+}
+.shot-frame img{ width:100%; height:100%; object-fit:cover; }
+
+/* graceful placeholder when photo not uploaded yet */
+figure.ph .shot-frame img, .side-card.ph .side-img img, .sum-shot.ph img{ display:none; }
+.ph-note{
+  display:none;
+  position:absolute; inset:0;
+  align-items:center; justify-content:center; flex-direction:column; gap:.5rem;
+  text-align:center; padding:1.25rem;
+  background:
+    repeating-linear-gradient(45deg, var(--paper-2) 0 12px, var(--paper-3) 12px 24px);
+  color:var(--ink-soft);
+}
+.ph .ph-note{ display:flex; }
+.ph-note strong{ font-family:var(--display); font-size:1.05rem; }
+.ph-note code{
+  font-family:ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size:.72rem; background:var(--paper); padding:.25rem .5rem;
+  border:1px solid rgba(32,27,20,.2); border-radius:6px;
+}
+
+.annot{
+  position:absolute; z-index:3;
+  display:flex; align-items:center; gap:.5rem;
+  pointer-events:none;
+}
+.annot .label{
+  background:var(--paper); border:var(--edge); border-radius:999px;
+  padding:.4rem .85rem; box-shadow:var(--shadow-sm);
+  font-size:.7rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase;
+  white-space:nowrap;
+}
+.annot .line{ width:clamp(26px,5vw,54px); height:1.5px; background:var(--ink); position:relative; }
+.annot .line::after{
+  content:""; position:absolute; right:-4px; top:-3.5px;
+  width:8px; height:8px; border-radius:50%; background:var(--tomato);
+}
+.annot.left{ flex-direction:row; }
+.annot.right{ flex-direction:row-reverse; }
+.annot.right .line::after{ right:auto; left:-4px; }
+
+.annot.a1{ top:12%; left:-4%; }
+.annot.a2{ top:38%; right:-5%; }
+.annot.a3{ bottom:28%; left:-6%; }
+.annot.a4{ bottom:9%; right:-3%; }
+
+@media (max-width:1180px){
+  .annot.a1{ left:2%; } .annot.a2{ right:2%; }
+  .annot.a3{ left:2%; } .annot.a4{ right:2%; }
+}
+@media (max-width:620px){ .annot{ display:none; } }
+
+.annot-list{
+  display:none; flex-wrap:wrap; gap:.5rem; margin-top:1rem;
+}
+@media (max-width:620px){ .annot-list{ display:flex; } }
+.annot-list span{
+  border:var(--edge); border-radius:999px; padding:.35rem .8rem;
+  font-size:.68rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  background:var(--paper);
+}
+
+.badge-250{
+  position:absolute; z-index:4;
+  left:-2.5rem; bottom:-2rem;
+  width:clamp(88px,14vw,124px); aspect-ratio:1; border-radius:50%;
+  background:var(--tomato); color:var(--paper);
+  display:grid; place-content:center; text-align:center;
+  border:var(--edge); box-shadow:var(--shadow-md);
+  transform:rotate(-9deg);
+  font-family:var(--display); font-weight:900; line-height:.9;
+}
+.badge-250 b{ font-size:clamp(1.5rem,3vw,2.1rem); display:block; }
+.badge-250 span{ font-size:.58rem; font-family:var(--body); font-weight:700; letter-spacing:.16em; text-transform:uppercase; display:block; margin-top:.3rem; }
+@media (max-width:960px){ .badge-250{ left:auto; right:-1rem; bottom:-1.5rem; } }
+
+/* ============================ TICKER ============================ */
+.ticker{
+  border-block:var(--edge); background:var(--gold);
+  overflow:hidden; padding-block:.7rem;
+  --speed:34s;
+}
+.ticker-track{ display:flex; width:max-content; animation:slide var(--speed) linear infinite; }
+.ticker:hover .ticker-track{ animation-play-state:paused; }
+@media (prefers-reduced-motion: reduce){ .ticker-track{ animation:none; } }
+@keyframes slide{ to{ transform:translateX(-50%); } }
+.ticker-track span{
+  font-family:var(--display); font-weight:900; font-size:.95rem;
+  letter-spacing:.06em; text-transform:uppercase;
+  padding-inline:1.4rem; white-space:nowrap;
+  display:flex; align-items:center; gap:1.4rem;
+}
+.ticker-track span::after{ content:"✷"; color:var(--tomato); }
+
+/* ============================ SECTIONS ============================ */
+.sec{ padding-block:clamp(3.5rem,8vw,6.5rem); position:relative; }
+.sec-head{ max-width:60ch; margin-bottom:clamp(2rem,4vw,3.25rem); }
+.sec-head h2{ font-size:clamp(2.1rem,5.2vw,3.6rem); }
+.sec-head p{ color:var(--ink-soft); font-size:1.05rem; margin:1rem 0 0; max-width:52ch; }
+
+.sec.tint{ background:var(--paper-2); border-block:var(--edge); }
+
+/* ---------- anatomy ---------- */
+.anat{ display:grid; grid-template-columns:repeat(4,1fr); gap:1.1rem; }
+@media (max-width:880px){ .anat{ grid-template-columns:repeat(2,1fr); } }
+.anat-card{
+  background:var(--paper); border:var(--edge); border-radius:var(--r-md);
+  padding:1.5rem 1.35rem; box-shadow:var(--shadow-sm);
+  transition:transform .25s cubic-bezier(.2,.7,.3,1), box-shadow .25s;
+}
+.anat-card:hover{ transform:translateY(-5px) rotate(-.7deg); box-shadow:var(--shadow-md); }
+.anat-card:nth-child(even):hover{ transform:translateY(-5px) rotate(.7deg); }
+.anat-ico{
+  width:46px; height:46px; margin-bottom:1rem;
+  display:grid; place-content:center;
+  border:var(--edge); border-radius:50%; background:var(--cream);
+}
+.anat-ico svg{ width:24px; height:24px; stroke:var(--ink); fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+.anat-card h3{ font-size:1.22rem; margin-bottom:.5rem; }
+.anat-card p{ margin:0; font-size:.92rem; color:var(--ink-soft); }
+
+/* ============================ BUILDER ============================ */
+.builder{
+  display:grid; grid-template-columns:minmax(0,1.35fr) minmax(320px,.85fr);
+  gap:clamp(1.5rem,3.5vw,3rem); align-items:start;
+}
+@media (max-width:1000px){ .builder{ grid-template-columns:1fr; } }
+
+.step{ margin-bottom:2.5rem; }
+.step-label{
+  display:flex; align-items:center; gap:.75rem; margin-bottom:1.25rem;
+}
+.step-num{
+  width:30px; height:30px; flex:none;
+  display:grid; place-content:center;
+  border:var(--edge); border-radius:50%;
+  background:var(--ink); color:var(--paper);
+  font-family:var(--display); font-weight:900; font-size:.9rem;
+}
+.step-label h3{ font-size:1.35rem; }
+.step-label small{ color:var(--ink-faint); font-size:.8rem; font-weight:500; margin-left:auto; }
+
+.sides{ display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
+@media (max-width:900px){ .sides{ grid-template-columns:repeat(2,1fr); } }
+
+.side-card{
+  position:relative; display:flex; flex-direction:column; cursor:pointer;
+  background:var(--paper); border:var(--edge); border-radius:var(--r-md);
+  overflow:hidden; text-align:left;
+  padding:0; width:100%;
+  box-shadow:var(--shadow-sm);
+  transition:transform .22s cubic-bezier(.2,.7,.3,1), box-shadow .22s, border-color .2s;
+}
+.side-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-md); }
+.side-card:focus-visible{ outline:3px solid var(--tomato); outline-offset:3px; }
+.side-card[aria-pressed="true"]{
+  border-color:var(--tomato); border-width:3px;
+  box-shadow:var(--shadow-md), 0 0 0 4px rgba(209,67,40,.14);
+}
+.side-card[aria-pressed="true"]::after{
+  content:"✓"; position:absolute; top:.7rem; right:.7rem; z-index:2;
+  width:28px; height:28px; border-radius:50%;
+  background:var(--tomato); color:#fff;
+  display:grid; place-content:center; font-size:.85rem; font-weight:700;
+  border:var(--edge);
+  animation:pop .3s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes pop{ from{ transform:scale(0); } }
+.side-img{ display:block; position:relative; aspect-ratio:1/1; background:var(--paper-2); overflow:hidden; }
+.side-img img{ width:100%; height:100%; object-fit:cover; transition:transform .5s cubic-bezier(.2,.7,.3,1); }
+.side-card:hover .side-img img{ transform:scale(1.06); }
+.side-body{ display:block; padding:1rem 1.05rem 1.15rem; }
+.side-body h4{ font-size:1.08rem; margin-bottom:.35rem; }
+.side-body p{ margin:0 0 .7rem; font-size:.84rem; color:var(--ink-soft); line-height:1.45; }
+.side-price{ display:block; font-family:var(--display); font-weight:900; font-size:1.15rem; }
+
+/* extras */
+.extras{ display:grid; gap:.8rem; }
+.extra{
+  display:flex; align-items:center; gap:1rem;
+  background:var(--paper); border:var(--edge); border-radius:var(--r-sm);
+  padding:.9rem 1.1rem;
+}
+.extra-txt{ margin-right:auto; }
+.extra-txt b{ display:block; font-size:.98rem; font-weight:600; }
+.extra-txt small{ color:var(--ink-faint); font-size:.8rem; }
+
+.stepper{ display:flex; align-items:center; gap:.15rem; border:var(--edge); border-radius:999px; padding:.2rem; background:var(--paper-2); }
+.stepper button{
+  width:32px; height:32px; border:none; border-radius:50%; background:transparent;
+  cursor:pointer; font-size:1.1rem; font-weight:700; line-height:1;
+  display:grid; place-content:center;
+  transition:background .18s, transform .12s;
+}
+.stepper button:hover:not([disabled]){ background:var(--gold); }
+.stepper button:active:not([disabled]){ transform:scale(.9); }
+.stepper button[disabled]{ opacity:.3; cursor:not-allowed; }
+.stepper output{
+  min-width:2.1rem; text-align:center;
+  font-family:var(--display); font-weight:900; font-size:1.05rem;
+  font-variant-numeric:tabular-nums;
+}
+
+.notes{
+  width:100%; margin-top:.4rem;
+  background:var(--paper); border:var(--edge); border-radius:var(--r-sm);
+  padding:.85rem 1rem; resize:vertical; min-height:80px;
+  font-size:.94rem;
+}
+.notes:focus-visible{ outline:2px solid var(--gold); outline-offset:1px; }
+.notes::placeholder{ color:var(--ink-faint); }
+
+/* ---------- summary ---------- */
+.summary{
+  position:sticky; top:88px;
+  background:var(--paper); border:2.5px solid var(--ink); border-radius:var(--r-lg);
+  overflow:hidden; box-shadow:var(--shadow-lg);
+}
+@media (max-width:1000px){ .summary{ position:static; } }
+.sum-shot{ position:relative; aspect-ratio:16/10; background:var(--paper-2); border-bottom:var(--edge); }
+.sum-shot img{ width:100%; height:100%; object-fit:cover; }
+.sum-shot figcaption{
+  position:absolute; left:.9rem; bottom:.9rem; z-index:2;
+  background:var(--paper); border:var(--edge); border-radius:999px;
+  padding:.35rem .9rem; font-size:.72rem; font-weight:700;
+  letter-spacing:.08em; text-transform:uppercase;
+  box-shadow:var(--shadow-sm);
+}
+.sum-body{ padding:1.35rem 1.35rem 1.5rem; }
+.sum-body h3{ font-size:1.5rem; margin-bottom:1.1rem; }
+
+.lines{ list-style:none; margin:0 0 1.1rem; padding:0; display:grid; gap:.6rem; }
+.lines li{
+  display:flex; align-items:baseline; gap:.6rem;
+  font-size:.92rem; color:var(--ink-soft);
+}
+.lines li span:first-child{ flex:1; }
+.lines li span:last-child{ font-variant-numeric:tabular-nums; font-weight:600; color:var(--ink); }
+.lines li.muted{ color:var(--ink-faint); font-style:italic; }
+
+.total{
+  display:flex; align-items:baseline; justify-content:space-between;
+  padding-top:1rem; margin-bottom:1.2rem;
+  border-top:var(--edge);
+}
+.total b{ font-family:var(--body); font-size:.78rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-faint); }
+.total output{
+  font-family:var(--display); font-weight:900; font-size:2.4rem;
+  font-variant-numeric:tabular-nums; letter-spacing:-.03em;
+}
+.sum-foot{ margin:.85rem 0 0; font-size:.78rem; color:var(--ink-faint); text-align:center; line-height:1.5; }
+
+.warn{
+  display:none; margin-top:.8rem; padding:.7rem .9rem;
+  background:#FDF0D5; border:1.5px dashed var(--gold-deep); border-radius:var(--r-sm);
+  font-size:.78rem; color:var(--gold-deep); line-height:1.45;
+}
+.warn.show{ display:block; }
+.warn code{ font-family:ui-monospace,Menlo,monospace; font-size:.72rem; }
+
+/* ============================ WAYS ============================ */
+.ways{ display:grid; grid-template-columns:repeat(4,1fr); gap:1.1rem; }
+@media (max-width:900px){ .ways{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:520px){ .ways{ grid-template-columns:1fr; } }
+.way{
+  background:var(--paper); border:var(--edge); border-radius:var(--r-md);
+  padding:1.6rem 1.35rem; position:relative; overflow:hidden;
+  transition:transform .25s cubic-bezier(.2,.7,.3,1);
+}
+.way:hover{ transform:translateY(-5px); }
+.way::before{
+  content:""; position:absolute; left:0; top:0; height:4px; width:100%;
+  background:var(--gold); transform:scaleX(0); transform-origin:left;
+  transition:transform .35s cubic-bezier(.2,.7,.3,1);
+}
+.way:hover::before{ transform:scaleX(1); }
+.way b{ font-family:var(--display); font-weight:900; font-size:1.18rem; display:block; margin-bottom:.5rem; }
+.way p{ margin:0; font-size:.9rem; color:var(--ink-soft); }
+
+/* ============================ FAQ ============================ */
+.faq{ max-width:820px; }
+.faq details{
+  border-bottom:var(--edge); padding:1.15rem 0;
+}
+.faq details[open] summary{ color:var(--tomato); }
+.faq summary{
+  cursor:pointer; list-style:none;
+  font-family:var(--display); font-weight:900; font-size:1.18rem;
+  display:flex; align-items:center; gap:1rem;
+  transition:color .2s;
+}
+.faq summary::-webkit-details-marker{ display:none; }
+.faq summary::after{
+  content:"+"; margin-left:auto; font-size:1.5rem; font-weight:400;
+  transition:transform .3s cubic-bezier(.2,.7,.3,1);
+}
+.faq details[open] summary::after{ transform:rotate(45deg); }
+.faq p{ margin:.85rem 0 0; color:var(--ink-soft); max-width:62ch; font-size:.96rem; }
+
+/* ============================ FOOTER ============================ */
+.ftr{ background:var(--ink); color:var(--paper); padding-block:clamp(3rem,6vw,4.5rem) 2rem; }
+.ftr-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:2.5rem; margin-bottom:3rem; }
+@media (max-width:760px){ .ftr-grid{ grid-template-columns:1fr; gap:2rem; } }
+.ftr h4{ font-size:.72rem; font-family:var(--body); font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem; }
+.ftr p{ color:rgba(251,246,236,.62); font-size:.9rem; margin:0; max-width:38ch; }
+.ftr ul{ list-style:none; margin:0; padding:0; display:grid; gap:.6rem; }
+.ftr ul a{ color:rgba(251,246,236,.78); text-decoration:none; font-size:.9rem; transition:color .2s; }
+.ftr ul a:hover{ color:var(--gold); }
+.ftr-mark{ font-family:var(--display); font-weight:900; font-size:clamp(2rem,5vw,2.8rem); margin-bottom:1rem; letter-spacing:-.03em; }
+.ftr-btm{
+  border-top:1px solid rgba(251,246,236,.16); padding-top:1.5rem;
+  display:flex; flex-wrap:wrap; gap:1rem; justify-content:space-between;
+  font-size:.78rem; color:rgba(251,246,236,.45);
+}
+
+/* ---------- mobile order bar ---------- */
+.mbar{
+  position:fixed; left:0; right:0; bottom:0; z-index:70;
+  display:none; align-items:center; gap:1rem;
+  padding:.8rem var(--gut) calc(.8rem + env(safe-area-inset-bottom));
+  background:color-mix(in srgb, var(--paper) 94%, transparent);
+  backdrop-filter:blur(14px);
+  border-top:var(--edge);
+}
+.mbar .m-total{ font-family:var(--display); font-weight:900; font-size:1.5rem; }
+.mbar .m-total small{ display:block; font-family:var(--body); font-size:.62rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); }
+.mbar .btn{ margin-left:auto; }
+@media (max-width:1000px){ .mbar{ display:flex; } body{ padding-bottom:80px; } }
+
+.skip{
+  position:absolute; left:-9999px; top:0; z-index:200;
+  background:var(--ink); color:var(--paper); padding:.75rem 1.25rem; border-radius:0 0 8px 0;
+}
+.skip:focus{ left:0; }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#build">Skip to the box builder</a>
+
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="brand" href="#top">
+      <img src="logo.png" alt="" width="38" height="38">
+      <span class="brand-txt"><b>Minuit</b><span>Munchies</span></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#inside">What's inside</a>
+      <a href="#build">Build your box</a>
+      <a href="#find">Find us</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <span class="status"><i class="dot" id="statusDot"></i><span id="statusTxt">Checking hours…</span></span>
+    <a class="btn sm" href="#build">Order</a>
+  </div>
+</header>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow reveal">Marinated · Grilled · Sauced</p>
+      <h1 class="reveal" style="--d:60ms">The chicken<br>is the <em>point.</em></h1>
+      <p class="hero-lede reveal" style="--d:140ms">
+        <b>250 g of boldly marinated chicken thigh</b>, fresh tomato, crisp onion and our
+        signature Minuit sauce. Then you decide how to finish it — plantain, fries,
+        bread, or nothing at all.
+      </p>
+      <div class="hero-cta reveal" style="--d:220ms">
+        <a class="btn" href="#build">Build your box →</a>
+        <a class="btn ghost" href="#inside">What's inside</a>
+        <span class="price-tag"><b id="fromPrice">$18</b><span>full box</span></span>
+      </div>
+    </div>
+
+    <figure class="shot reveal" style="--d:300ms; margin:0" id="heroFig">
+      <div class="shot-frame">
+        <img src="images/box-hero.jpg" alt="An open kraft box of Minuit Munchies marinated chicken topped with fresh tomatoes, onions and signature sauce." width="1200" height="900">
+        <div class="ph-note">
+          <strong>Hero photo goes here</strong>
+          <code>images/box-hero.jpg</code>
+        </div>
+      </div>
+      <span class="annot left a1"><span class="label">Fresh tomatoes</span><span class="line"></span></span>
+      <span class="annot right a2"><span class="label">Crisp onions</span><span class="line"></span></span>
+      <span class="annot left a3"><span class="label">Minuit sauce</span><span class="line"></span></span>
+      <span class="annot right a4"><span class="label">Marinated thigh</span><span class="line"></span></span>
+      <div class="badge-250"><b>250g</b><span>chicken</span></div>
+      <div class="annot-list">
+        <span>Fresh tomatoes</span><span>Crisp onions</span><span>Minuit sauce</span><span>Marinated thigh</span>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="tickerTrack"></div>
+</div>
+
+<!-- ============================ ANATOMY ============================ -->
+<section class="sec" id="inside">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">The base</p>
+      <h2>Every box starts the same way.</h2>
+      <p>Four things do the work. The side is just how you choose to finish it —
+         which is why no two orders have to taste like the same meal.</p>
+    </div>
+
+    <div class="anat">
+      <article class="anat-card reveal">
+        <div class="anat-ico"><svg viewBox="0 0 24 24"><path d="M6 13c0-3.3 2.7-6 6-6s6 2.7 6 6v3H6v-3Z"/><path d="M9 16v3M15 16v3M12 7V5"/></svg></div>
+        <h3>250 g chicken thigh</h3>
+        <p>Boldly marinated, grilled, juicy. Thigh over breast because thigh holds flavour and never dries out.</p>
+      </article>
+      <article class="anat-card reveal" style="--d:80ms">
+        <div class="anat-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="7"/><path d="M12 6c0-2 1.5-3 3-3"/></svg></div>
+        <h3>Fresh tomatoes</h3>
+        <p>Diced fresh to order. Acidity and colour that cut straight through the richness of the sauce.</p>
+      </article>
+      <article class="anat-card reveal" style="--d:160ms">
+        <div class="anat-ico"><svg viewBox="0 0 24 24"><path d="M12 21c-4 0-7-3-7-7 0-4 3-8 7-11 4 3 7 7 7 11 0 4-3 7-7 7Z"/><path d="M12 3v18"/></svg></div>
+        <h3>Crisp onions</h3>
+        <p>Sliced thin for bite and crunch. The texture that keeps every forkful from going soft.</p>
+      </article>
+      <article class="anat-card reveal" style="--d:240ms">
+        <div class="anat-ico"><svg viewBox="0 0 24 24"><path d="M4 11h16a8 8 0 0 1-16 0Z"/><path d="M9 8c0-1.7 1.3-3 3-3s3 1.3 3 3"/></svg></div>
+        <h3>Signature Minuit sauce</h3>
+        <p>Creamy, tangy, mayo-based and entirely ours. This is the thing people come back for.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ BUILDER ============================ -->
+<section class="sec tint" id="build">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Build your box</p>
+      <h2>Same base. Four endings.</h2>
+      <p>Pick a side, add what you want more of, and send it straight to us on WhatsApp.
+         No account, no app, no waiting on a form.</p>
+    </div>
+
+    <div class="builder">
+      <div>
+        <!-- STEP 1 -->
+        <div class="step reveal">
+          <div class="step-label">
+            <span class="step-num">1</span>
+            <h3>Choose your side</h3>
+            <small>Required</small>
+          </div>
+          <div class="sides" id="sides" role="group" aria-label="Choose your side"></div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="step reveal">
+          <div class="step-label">
+            <span class="step-num">2</span>
+            <h3>How many boxes?</h3>
+          </div>
+          <div class="extras">
+            <div class="extra">
+              <span class="extra-txt"><b>Boxes</b><small>Same build for each</small></span>
+              <div class="stepper" data-key="qty" data-min="1" data-max="20">
+                <button type="button" data-step="-1" aria-label="One fewer box">−</button>
+                <output aria-live="polite">1</output>
+                <button type="button" data-step="1" aria-label="One more box">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="step reveal">
+          <div class="step-label">
+            <span class="step-num">3</span>
+            <h3>Add extras</h3>
+            <small>Optional</small>
+          </div>
+          <div class="extras" id="extras"></div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="step reveal">
+          <div class="step-label">
+            <span class="step-num">4</span>
+            <h3>Anything we should know?</h3>
+            <small>Optional</small>
+          </div>
+          <textarea class="notes" id="notes" rows="3"
+            placeholder="Allergies, spice level, buzzer code, drop-off instructions…"></textarea>
+        </div>
+      </div>
+
+      <!-- SUMMARY -->
+      <aside class="summary reveal" style="--d:120ms" aria-label="Your order">
+        <figure class="sum-shot" id="sumShot" style="margin:0">
+          <img id="sumImg" src="images/box-plantain.jpg" alt="" width="800" height="500">
+          <div class="ph-note"><strong>Box photo</strong><code id="sumCode">images/box-plantain.jpg</code></div>
+          <figcaption id="sumCap">Plantain Box</figcaption>
+        </figure>
+        <div class="sum-body">
+          <h3>Your box</h3>
+          <ul class="lines" id="lines"></ul>
+          <div class="total">
+            <b>Total</b>
+            <output id="total" aria-live="polite">$18</output>
+          </div>
+          <button class="btn wa" type="button" id="orderBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5 4.4 1.8.8 2.5.8 3.4.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.5-.3Z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
+            Send order on WhatsApp
+          </button>
+          <div class="warn" id="waWarn">
+            <b>Setup needed:</b> the WhatsApp number is still a placeholder.
+            Set <code>WHATSAPP_NUMBER</code> near the top of the script in
+            <code>index.html</code> and this button goes live.
+          </div>
+          <p class="sum-foot">We confirm your order and delivery time in the chat.<br>Prices in CAD.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ WAYS ============================ -->
+<section class="sec" id="find">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Where to find us</p>
+      <h2>One production line.<br>A lot of doors.</h2>
+      <p>Because the box travels well and the base never changes, we can serve it
+         almost anywhere people are hungry.</p>
+    </div>
+    <div class="ways">
+      <article class="way reveal"><b>Delivery</b><p>Order on WhatsApp and we bring the box to you, hot and packed to survive the trip.</p></article>
+      <article class="way reveal" style="--d:80ms"><b>Pop-ups &amp; festivals</b><p>Fast to set up, fast to serve. One base, four finishes, a line that keeps moving.</p></article>
+      <article class="way reveal" style="--d:160ms"><b>Catering &amp; events</b><p>Feeding a crowd? We scale the same box for parties, offices and private events.</p></article>
+      <article class="way reveal" style="--d:240ms"><b>Bars &amp; partnerships</b><p>Got a venue with no kitchen? We plug in and run the food side of your night.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="sec tint" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Questions</p>
+      <h2>Good to know.</h2>
+    </div>
+    <div class="faq reveal">
+      <details open>
+        <summary>What actually comes in a box?</summary>
+        <p>250 g of marinated chicken thigh, diced fresh tomatoes, crisp onions and our
+           signature Minuit sauce — plus your side, if you choose one. That base is
+           identical in every box on the menu.</p>
+      </details>
+      <details>
+        <summary>What's in the Minuit sauce?</summary>
+        <p>A creamy, tangy mayo-based blend that we make ourselves. The exact recipe
+           stays in the kitchen, but it's the reason most people order a second box.</p>
+      </details>
+      <details>
+        <summary>What if I don't want a side?</summary>
+        <p>Order the Simple Chicken Box. Chicken, vegetables and sauce, nothing else —
+           it's the lightest option and the purest version of what we make.</p>
+      </details>
+      <details>
+        <summary>Do you deliver to me?</summary>
+        <p>Send us your address on WhatsApp when you place the order and we'll confirm
+           straight away whether you're in range and how long it'll take.</p>
+      </details>
+      <details>
+        <summary>Can you cater a group or an event?</summary>
+        <p>Yes. The box scales cleanly for parties, offices, festivals and private
+           events. Message us with your headcount and date and we'll put a quote together.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div>
+        <div class="ftr-mark">Minuit Munchies</div>
+        <p>A customizable chicken-box concept built around boldly marinated chicken,
+           fresh toppings and a signature sauce — with you choosing how to complete the meal.</p>
+      </div>
+      <div>
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="#build">Plantain Box</a></li>
+          <li><a href="#build">Fries Box</a></li>
+          <li><a href="#build">Bread Box</a></li>
+          <li><a href="#build">Simple Chicken Box</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="#build">Order on WhatsApp</a></li>
+          <li><a href="#find">Catering &amp; events</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-btm">
+      <span>&copy; <span id="yr">2026</span> Minuit Munchies. All rights reserved.</span>
+      <span id="hoursTxt">Open daily 8:00 PM – 2:00 AM</span>
+    </div>
+  </div>
+</footer>
+
+<div class="mbar">
+  <span class="m-total"><small>Total</small><span id="mTotal">$18</span></span>
+  <button class="btn" type="button" id="mOrderBtn">Order →</button>
+</div>
+
+<script>
+/* ================================================================
+   CONFIG — everything you need to change lives here.
+   ================================================================ */
+
+/* TODO: replace with the real WhatsApp number, digits only, with
+   country code and no "+" or spaces.  e.g. "15145550123" */
+const WHATSAPP_NUMBER = "10000000000";
+const WHATSAPP_PLACEHOLDER = "10000000000";
+
+const CURRENCY = "$";
+
+/* TODO: confirm these prices.
+   $18 comes from the target price for a full box.
+   The Simple Chicken Box price is an assumption — set it to whatever
+   you actually want to charge for the no-side version. */
+const SIDES = [
+  { id:"plantain", name:"Plantain Box",       price:18,
+    blurb:"Sweet, soft fried plantain against the marinade. The crowd favourite.",
+    img:"images/box-plantain.jpg" },
+  { id:"fries",    name:"Fries Box",          price:18,
+    blurb:"Classic, crispy, always right. Built for the sauce to land on.",
+    img:"images/box-fries.jpg" },
+  { id:"bread",    name:"Bread Box",          price:18,
+    blurb:"Fresh bread on the side, there to mop up every last bit of sauce.",
+    img:"images/box-bread.jpg" },
+  { id:"simple",   name:"Simple Chicken Box", price:15,
+    blurb:"Chicken, vegetables and sauce. No side, no filler, pure signal.",
+    img:"images/box-simple.jpg" }
+];
+
+const EXTRAS = [
+  { id:"chicken", name:"Extra chicken", note:"+125 g of marinated thigh", price:3, max:4 },
+  { id:"sauce",   name:"Extra sauce",   note:"An extra pot of Minuit sauce", price:1, max:6 }
+];
+
+/* Opening hours, 24h. Crosses midnight. */
+const HOURS = { open:20, close:2 };
+
+/* ================================================================
+   STATE
+   ================================================================ */
+const state = {
+  side: SIDES[0].id,
+  qty: 1,
+  extras: Object.fromEntries(EXTRAS.map(e => [e.id, 0]))
+};
+
+const $  = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+
+const money = n =>
+  CURRENCY + (Number.isInteger(n) ? n : n.toFixed(2));
+
+const currentSide = () => SIDES.find(s => s.id === state.side);
+
+/* ================================================================
+   PHOTO PLACEHOLDERS
+   Any image that fails to load flips its container into a labelled
+   placeholder, so the page still reads correctly before the real
+   photography is dropped into /images.
+   ================================================================ */
+function watchImg(img, container){
+  const fail = () => container.classList.add("ph");
+  const ok   = () => container.classList.remove("ph");
+  img.addEventListener("error", fail);
+  img.addEventListener("load", ok);
+  if (img.complete) (img.naturalWidth ? ok : fail)();
+}
+
+/* ================================================================
+   RENDER: SIDE CARDS
+   ================================================================ */
+function renderSides(){
+  const host = $("#sides");
+  host.innerHTML = "";
+  SIDES.forEach((s, i) => {
+    const card = document.createElement("button");
+    card.type = "button";
+    card.className = "side-card reveal";
+    card.style.setProperty("--d", (i * 70) + "ms");
+    card.setAttribute("aria-pressed", String(s.id === state.side));
+    card.dataset.id = s.id;
+    card.innerHTML =
+      '<span class="side-img">' +
+        '<img src="' + s.img + '" alt="' + s.name + '" width="500" height="500" loading="lazy">' +
+        '<span class="ph-note"><strong>' + s.name + '</strong><code>' + s.img + '</code></span>' +
+      '</span>' +
+      '<span class="side-body">' +
+        '<h4>' + s.name + '</h4>' +
+        '<p>' + s.blurb + '</p>' +
+        '<span class="side-price">' + money(s.price) + '</span>' +
+      '</span>';
+    card.addEventListener("click", () => { state.side = s.id; syncSides(); update(); });
+    host.appendChild(card);
+    watchImg($("img", card), card);
+    io && io.observe(card);
+  });
+}
+
+/* Selection only flips aria-pressed — re-rendering the cards would
+   replay their reveal animation on every click. */
+function syncSides(){
+  $$(".side-card").forEach(c =>
+    c.setAttribute("aria-pressed", String(c.dataset.id === state.side)));
+}
+
+/* ================================================================
+   RENDER: EXTRAS
+   ================================================================ */
+function renderExtras(){
+  const host = $("#extras");
+  host.innerHTML = "";
+  EXTRAS.forEach(e => {
+    const row = document.createElement("div");
+    row.className = "extra";
+    row.innerHTML =
+      '<span class="extra-txt"><b>' + e.name + '</b><small>' + e.note + ' &middot; ' + money(e.price) + ' each</small></span>' +
+      '<div class="stepper" data-key="' + e.id + '" data-min="0" data-max="' + e.max + '">' +
+        '<button type="button" data-step="-1" aria-label="One fewer ' + e.name + '">&minus;</button>' +
+        '<output aria-live="polite">0</output>' +
+        '<button type="button" data-step="1" aria-label="One more ' + e.name + '">+</button>' +
+      '</div>';
+    host.appendChild(row);
+  });
+}
+
+/* ================================================================
+   STEPPERS (delegated)
+   ================================================================ */
+document.addEventListener("click", ev => {
+  const btn = ev.target.closest(".stepper button");
+  if (!btn) return;
+  const box  = btn.closest(".stepper");
+  const key  = box.dataset.key;
+  const min  = +box.dataset.min;
+  const max  = +box.dataset.max;
+  const step = +btn.dataset.step;
+
+  const read  = () => key === "qty" ? state.qty : state.extras[key];
+  const write = v => key === "qty" ? (state.qty = v) : (state.extras[key] = v);
+
+  write(Math.min(max, Math.max(min, read() + step)));
+  update();
+});
+
+function syncSteppers(){
+  $$(".stepper").forEach(box => {
+    const key = box.dataset.key;
+    const val = key === "qty" ? state.qty : state.extras[key];
+    $("output", box).textContent = val;
+    const [minus, plus] = $$("button", box);
+    minus.disabled = val <= +box.dataset.min;
+    plus.disabled  = val >= +box.dataset.max;
+  });
+}
+
+/* ================================================================
+   TOTALS + SUMMARY
+   ================================================================ */
+function lineItems(){
+  const side = currentSide();
+  const items = [{
+    label: state.qty + " × " + side.name,
+    amount: side.price * state.qty
+  }];
+  EXTRAS.forEach(e => {
+    const n = state.extras[e.id];
+    if (n > 0) items.push({ label: e.name + " × " + n, amount: e.price * n });
+  });
+  return items;
+}
+
+const grandTotal = () => lineItems().reduce((sum, i) => sum + i.amount, 0);
+
+function update(){
+  const side  = currentSide();
+  const items = lineItems();
+  const total = grandTotal();
+
+  $("#lines").innerHTML = items
+    .map(i => '<li><span>' + i.label + '</span><span>' + money(i.amount) + '</span></li>')
+    .join("") +
+    (items.length === 1
+      ? '<li class="muted"><span>No extras added</span><span>—</span></li>'
+      : "");
+
+  $("#total").textContent  = money(total);
+  $("#mTotal").textContent = money(total);
+
+  const shot = $("#sumShot");
+  const img  = $("#sumImg");
+  if (img.getAttribute("src") !== side.img){
+    shot.classList.remove("ph");
+    img.src = side.img;
+    watchImg(img, shot);
+  }
+  img.alt          = side.name;
+  $("#sumCap").textContent  = side.name;
+  $("#sumCode").textContent = side.img;
+
+  syncSteppers();
+}
+
+/* ================================================================
+   WHATSAPP ORDER
+   ================================================================ */
+function orderMessage(){
+  const items = lineItems();
+  const notes = $("#notes").value.trim();
+
+  const body = [
+    "Hi Minuit Munchies! I'd like to order:",
+    "",
+    ...items.map(i => "• " + i.label + " — " + money(i.amount)),
+    "",
+    "Total: " + money(grandTotal())
+  ];
+
+  if (notes) body.push("", "Notes: " + notes);
+  body.push("", "Name:", "Address:", "Preferred time:");
+
+  return body.join("\n");
+}
+
+function sendOrder(){
+  if (WHATSAPP_NUMBER === WHATSAPP_PLACEHOLDER){
+    $("#waWarn").classList.add("show");
+    $("#waWarn").scrollIntoView({ block:"center", behavior:"smooth" });
+    return;
+  }
+  const url = "https://wa.me/" + WHATSAPP_NUMBER +
+              "?text=" + encodeURIComponent(orderMessage());
+  window.open(url, "_blank", "noopener");
+}
+
+$("#orderBtn").addEventListener("click", sendOrder);
+$("#mOrderBtn").addEventListener("click", () => {
+  const build = $("#build");
+  const seen  = build.getBoundingClientRect();
+  /* If the builder isn't on screen, take them there first. */
+  if (seen.bottom < 0 || seen.top > innerHeight) build.scrollIntoView({ behavior:"smooth" });
+  else sendOrder();
+});
+
+/* ================================================================
+   OPEN / CLOSED STATUS
+   ================================================================ */
+function openNow(){
+  const h = new Date().getHours();
+  return HOURS.open > HOURS.close
+    ? (h >= HOURS.open || h < HOURS.close)   /* crosses midnight */
+    : (h >= HOURS.open && h < HOURS.close);
+}
+function renderStatus(){
+  const on = openNow();
+  $("#statusDot").classList.toggle("off", !on);
+  $("#statusTxt").textContent = on ? "Open · until 2 AM" : "Opens 8 PM";
+}
+
+/* ================================================================
+   TICKER
+   ================================================================ */
+function renderTicker(){
+  const words = [
+    "250 g marinated chicken thigh",
+    "Signature Minuit sauce",
+    "Four ways to finish it",
+    "Made fresh to order",
+    "Delivery · pop-ups · catering"
+  ];
+  const once = words.map(w => "<span>" + w + "</span>").join("");
+  $("#tickerTrack").innerHTML = once + once;  /* doubled for a seamless loop */
+}
+
+/* ================================================================
+   SCROLL REVEAL
+   ================================================================ */
+const io = "IntersectionObserver" in window
+  ? new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.classList.add("in");
+        io.unobserve(e.target);
+      });
+    }, { rootMargin:"0px 0px -8% 0px", threshold:.08 })
+  : null;
+
+/* ================================================================
+   BOOT
+   ================================================================ */
+renderTicker();
+renderExtras();
+renderSides();
+update();
+renderStatus();
+setInterval(renderStatus, 60000);
+
+$("#yr").textContent = new Date().getFullYear();
+$("#fromPrice").textContent = money(Math.max(...SIDES.map(s => s.price)));
+
+watchImg($("#heroFig img"), $("#heroFig"));
+
+if (io) $$(".reveal").forEach(el => io.observe(el));
+else $$(".reveal").forEach(el => el.classList.add("in"));
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FoodEstablishment",
+  "name": "Minuit Munchies",
+  "image": "images/box-hero.jpg",
+  "description": "A customizable chicken-box concept built around boldly marinated chicken thigh, fresh toppings and a signature mayo-based sauce, with customers choosing how to complete the meal.",
+  "servesCuisine": "Chicken, Street food",
+  "openingHours": "Mo-Su 20:00-02:00",
+  "hasMenu": {
+    "@type": "Menu",
+    "hasMenuSection": {
+      "@type": "MenuSection",
+      "name": "Chicken Boxes",
+      "hasMenuItem": [
+        { "@type":"MenuItem","name":"Plantain Box","description":"250 g marinated chicken thigh, fresh tomatoes, onions, Minuit sauce and fried plantain.","offers":{"@type":"Offer","price":"18","priceCurrency":"CAD"} },
+        { "@type":"MenuItem","name":"Fries Box","description":"250 g marinated chicken thigh, fresh tomatoes, onions, Minuit sauce and fries.","offers":{"@type":"Offer","price":"18","priceCurrency":"CAD"} },
+        { "@type":"MenuItem","name":"Bread Box","description":"250 g marinated chicken thigh, fresh tomatoes, onions, Minuit sauce and bread on the side.","offers":{"@type":"Offer","price":"18","priceCurrency":"CAD"} },
+        { "@type":"MenuItem","name":"Simple Chicken Box","description":"250 g marinated chicken thigh, fresh tomatoes, onions and Minuit sauce. No side.","offers":{"@type":"Offer","price":"15","priceCurrency":"CAD"} }
+      ]
+    }
+  }
+}
+</script>
+</body>
+</html>
